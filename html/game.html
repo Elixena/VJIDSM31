@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escape de la Cárcel</title>
+    <link rel="stylesheet" href="../css/game.css">
+</head>
+
+<body>
+
+    <div class="contenedor">
+        <h1>Escape de la Cárcel</h1>
+
+        <p class="historia">
+            Un hombre sin hogar fue encerrado por robar comida. Ayúdalo a escapar, recoger pan y llegar a la salida sin que lo atrapen.
+        </p>
+
+        <div class="info">
+            <div>Comida recogida: <span id="puntos">0</span>/3</div>
+            <button class="btn" onclick="reiniciarJuego()">Reiniciar</button>
+        </div>
+
+        <div class="juego" id="juego">
+
+            <div class="celda">
+                <span>Celda inicial</span>
+            </div>
+
+            <div class="salida"></div>
+
+            <div class="pared p1"></div>
+            <div class="pared p2"></div>
+            <div class="pared p3"></div>
+            <div class="pared p4"></div>
+            <div class="pared p5"></div>
+            <div class="pared p6"></div>
+
+            <div class="comida c1" id="comida1"></div>
+            <div class="comida c2" id="comida2"></div>
+            <div class="comida c3" id="comida3"></div>
+
+            <div class="guardia g1" id="guardia1">
+                <div class="g-gorra"></div>
+                <div class="g-cabeza"></div>
+                <div class="g-cuerpo"></div>
+            </div>
+
+            <div class="guardia g2" id="guardia2">
+                <div class="g-gorra"></div>
+                <div class="g-cabeza"></div>
+                <div class="g-cuerpo"></div>
+            </div>
+
+            <div class="guardia g3" id="guardia3">
+                <div class="g-gorra"></div>
+                <div class="g-cabeza"></div>
+                <div class="g-cuerpo"></div>
+            </div>
+
+            <div class="personaje" id="personaje">
+                <div class="cabeza"></div>
+                <div class="cuerpo"></div>
+                <div class="pierna izq"></div>
+                <div class="pierna der"></div>
+            </div>
+
+            <div class="mensaje" id="pantallaInicio">
+                <h2>Escape de la Cárcel</h2>
+                <p>
+                    Usa las flechas del teclado para moverte. Recoge los 3 panes y llega a la puerta verde.
+                    Cuidado con los guardias.
+                </p>
+                <button class="btn" onclick="iniciarJuego()">Jugar</button>
+            </div>
+
+            <div class="mensaje oculto" id="pantallaFinal">
+                <h2 id="tituloFinal"></h2>
+                <p id="textoFinal"></p>
+                <button class="btn" onclick="reiniciarJuego()">Jugar otra vez</button>
+            </div>
+
+        </div>
+
+        <p class="controles">
+            Controles: flechas del teclado ↑ ↓ ← →
+        </p>
+    </div>
+
+    <script>
+        const personaje = document.getElementById("personaje");
+        const puntosTexto = document.getElementById("puntos");
+        const pantallaInicio = document.getElementById("pantallaInicio");
+        const pantallaFinal = document.getElementById("pantallaFinal");
+        const tituloFinal = document.getElementById("tituloFinal");
+        const textoFinal = document.getElementById("textoFinal");
+
+        const comidas = [
+            document.getElementById("comida1"),
+            document.getElementById("comida2"),
+            document.getElementById("comida3")
+        ];
+
+        const guardias = [
+            document.getElementById("guardia1"),
+            document.getElementById("guardia2"),
+            document.getElementById("guardia3")
+        ];
+
+        const paredes = document.querySelectorAll(".pared");
+
+        let x = 45;
+        let y = 230;
+        let velocidad = 10;
+        let puntos = 0;
+        let jugando = false;
+
+        const teclas = {
+            ArrowUp: false,
+            ArrowDown: false,
+            ArrowLeft: false,
+            ArrowRight: false
+        };
+
+        function iniciarJuego() {
+            pantallaInicio.classList.add("oculto");
+            jugando = true;
+        }
+
+        function reiniciarJuego() {
+            x = 45;
+            y = 230;
+            puntos = 0;
+            jugando = true;
+
+            personaje.style.left = x + "px";
+            personaje.style.top = y + "px";
+
+            puntosTexto.textContent = puntos;
+
+            comidas.forEach(comida => {
+                comida.style.display = "block";
+            });
+
+            pantallaInicio.classList.add("oculto");
+            pantallaFinal.classList.add("oculto");
+        }
+
+        document.addEventListener("keydown", function(event) {
+            if (event.key in teclas) {
+                teclas[event.key] = true;
+            }
+        });
+
+        document.addEventListener("keyup", function(event) {
+            if (event.key in teclas) {
+                teclas[event.key] = false;
+            }
+        });
+
+        function moverPersonaje() {
+            if (!jugando) return;
+
+            let nuevoX = x;
+            let nuevoY = y;
+
+            if (teclas.ArrowUp) nuevoY -= velocidad;
+            if (teclas.ArrowDown) nuevoY += velocidad;
+            if (teclas.ArrowLeft) nuevoX -= velocidad;
+            if (teclas.ArrowRight) nuevoX += velocidad;
+
+            // Límites del mapa
+            if (nuevoX < 0) nuevoX = 0;
+            if (nuevoY < 0) nuevoY = 0;
+            if (nuevoX > 866) nuevoX = 866;
+            if (nuevoY > 470) nuevoY = 470;
+
+            const posicionAnterior = {
+                left: x,
+                top: y
+            };
+
+            x = nuevoX;
+            y = nuevoY;
+
+            personaje.style.left = x + "px";
+            personaje.style.top = y + "px";
+
+            // Evitar atravesar paredes
+            paredes.forEach(pared => {
+                if (colision(personaje, pared)) {
+                    x = posicionAnterior.left;
+                    y = posicionAnterior.top;
+                    personaje.style.left = x + "px";
+                    personaje.style.top = y + "px";
+                }
+            });
+        }
+
+        function revisarComida() {
+            if (!jugando) return;
+
+            comidas.forEach(comida => {
+                if (comida.style.display !== "none" && colision(personaje, comida)) {
+                    comida.style.display = "none";
+                    puntos++;
+                    puntosTexto.textContent = puntos;
+                }
+            });
+        }
+
+        function revisarGuardias() {
+            if (!jugando) return;
+
+            guardias.forEach(guardia => {
+                if (colision(personaje, guardia)) {
+                    perder();
+                }
+            });
+        }
+
+        function revisarSalida() {
+            const salida = document.querySelector(".salida");
+
+            if (jugando && colision(personaje, salida)) {
+                if (puntos >= 3) {
+                    ganar();
+                } else {
+                    tituloFinal.textContent = "Te falta comida";
+                    textoFinal.textContent = "Antes de escapar, recoge los 3 panes. Él solo quiere sobrevivir afuera.";
+                    pantallaFinal.classList.remove("oculto");
+                    jugando = false;
+                }
+            }
+        }
+
+        function ganar() {
+            jugando = false;
+            tituloFinal.textContent = "¡Escapaste!";
+            textoFinal.textContent = "Logró salir con algo de comida. Ahora empieza una nueva oportunidad lejos de la cárcel.";
+            pantallaFinal.classList.remove("oculto");
+        }
+
+        function perder() {
+            jugando = false;
+            tituloFinal.textContent = "Te atraparon";
+            textoFinal.textContent = "Un guardia te encontró antes de llegar a la salida. Inténtalo otra vez.";
+            pantallaFinal.classList.remove("oculto");
+        }
+
+        function colision(a, b) {
+            const rectA = a.getBoundingClientRect();
+            const rectB = b.getBoundingClientRect();
+
+            return !(
+                rectA.right < rectB.left ||
+                rectA.left > rectB.right ||
+                rectA.bottom < rectB.top ||
+                rectA.top > rectB.bottom
+            );
+        }
+
+        function actualizarJuego() {
+            moverPersonaje();
+            revisarComida();
+            revisarGuardias();
+            revisarSalida();
+
+            requestAnimationFrame(actualizarJuego);
+        }
+
+        actualizarJuego();
+    </script>
+
+</body>
+</html>
