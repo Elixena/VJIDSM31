@@ -1,41 +1,59 @@
-/* Estilo general */
+/* Fondo general */
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
-    background: linear-gradient(to bottom, #2b2b2b, #0d0d0d);
-    color: #f0f0f0;
+    background-color: #1b1a17;
+    color: #e8e3d8;
 }
 
-/* Encabezado */
-header {
+/* Portada principal */
+.hero {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(
+            rgba(0, 0, 0, 0.55),
+            rgba(0, 0, 0, 0.80)
+        ),
+        url("portada9.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    padding: 40px 20px;
-    background: #1b1b1b;
-    border-bottom: 3px solid #8b6f47;
 }
 
-header h1 {
-    font-size: 70px;
+.contenido-hero h1 {
+    font-size: 120px;
     margin: 0;
-    color: #c9b27c;
-    text-shadow: 2px 2px 10px black;
+    color: #d4b87b;
+    text-shadow: 0 0 15px black, 0 0 25px black;
 }
 
-header p {
-    font-size: 20px;
-    color: #cccccc;
+.contenido-hero p {
+    font-size: 28px;
+    color: #f0e8d8;
+    text-shadow: 2px 2px 8px black;
+    max-width: 700px;
+    margin: 15px auto 0;
 }
 
 /* Menú */
 nav {
-    background-color: #3a3a3a;
+    background-color: rgba(58, 52, 45, 0.9);
     display: flex;
     justify-content: center;
     padding: 15px;
+    position: sticky;
+    top: 0;
+    backdrop-filter: blur(5px);
+    z-index: 1000;
 }
 
 nav a {
-    color: white;
+    color: #e8e3d8;
     text-decoration: none;
     margin: 0 20px;
     font-weight: bold;
@@ -43,7 +61,31 @@ nav a {
 }
 
 nav a:hover {
-    color: #c9b27c;
+    color: #b89a5e;
+}
+
+/* Tarjetas */
+.tarjeta {
+    width: 85%;
+    margin: 30px auto;
+    background-color: rgba(70, 65, 58, 0.6);
+    padding: 25px;
+    border-radius: 15px;
+    border-left: 5px solid #b89a5e;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.tarjeta h2 {
+    color: #d4b87b;
+}
+
+/* Pie de página */
+footer {
+    background-color: #2a2622;
+    color: #bdb6aa;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
 }
 
 /* Contenido principal */
@@ -52,18 +94,6 @@ main {
     margin: 30px auto;
 }
 
-.tarjeta {
-    background-color: rgba(255, 255, 255, 0.08);
-    padding: 20px;
-    margin-bottom: 25px;
-    border-radius: 12px;
-    border-left: 5px solid #8b6f47;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
-}
-
-.tarjeta h2 {
-    color: #d4c093;
-}
 
 /* Lista */
 ul {
@@ -73,13 +103,4 @@ ul {
 
 li {
     margin: 10px 0;
-}
-
-/* Pie de página */
-footer {
-    text-align: center;
-    background: #1b1b1b;
-    padding: 15px;
-    color: #aaaaaa;
-    border-top: 2px solid #8b6f47;
 }
