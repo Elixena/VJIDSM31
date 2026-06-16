@@ -1,11 +1,449 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Versionamiento</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arcade Platformer</title>
+
+<style>
+
+body{
+    margin:0;
+    overflow:hidden;
+    background:#87CEEB;
+    font-family:Arial, sans-serif;
+}
+
+canvas{
+    display:block;
+    margin:auto;
+    background:linear-gradient(#87CEEB,#d8f3ff);
+    border:3px solid black;
+}
+
+#ui{
+    position:absolute;
+    top:10px;
+    left:10px;
+    color:white;
+    font-size:24px;
+    font-weight:bold;
+    text-shadow:2px 2px black;
+}
+
+#gameOver{
+    display:none;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    background:white;
+    padding:20px;
+    border:3px solid black;
+    text-align:center;
+}
+
+button{
+    padding:10px;
+    font-size:18px;
+}
+
+</style>
 </head>
 <body>
-    <h1>Bienvenidos IDSM31</h1>
+
+<div id="ui">
+    Puntos: <span id="score">0</span>
+    &nbsp;&nbsp;
+    Vidas: <span id="lives">5</span>
+</div>
+
+<div id="gameOver">
+    <h1>GAME OVER</h1>
+    <p id="finalScore"></p>
+    <button onclick="location.reload()">Reiniciar</button>
+</div>
+
+<canvas id="gameCanvas" width="1000" height="500"></canvas>
+
+<script>
+
+const canvas = document.getElementById("gameCanvas");
+const ctx = canvas.getContext("2d");
+
+let score = 0;
+let lives = 5;
+
+const gravity = 0.7;
+
+const player = {
+    x:50,
+    y:350,
+    width:40,
+    height:50,
+    color:"red",
+    velocityX:0,
+    velocityY:0,
+    speed:6,
+    jumpPower:-15,
+    grounded:false
+};
+
+const keys = {};
+
+const platforms = [
+
+    {x:0,y:450,w:1000,h:50},
+
+    {x:100,y:380,w:150,h:20},
+    {x:300,y:330,w:180,h:20},
+    {x:550,y:280,w:150,h:20},
+    {x:750,y:220,w:180,h:20},
+
+    {x:200,y:180,w:150,h:20},
+    {x:500,y:130,w:150,h:20},
+
+    {x:850,y:100,w:120,h:20}
+
+];
+
+const coins = [];
+
+function createCoins(){
+
+    platforms.forEach(platform=>{
+
+        const cantidad = Math.floor(Math.random() * 4) + 2;
+
+        for(let i = 0; i < cantidad; i++){
+
+            coins.push({
+                x: platform.x + 30 + Math.random() * (platform.w - 60),
+                y: platform.y - 25,
+                collected: false,
+                offset: Math.random() * 100
+            });
+
+        }
+
+    });
+
+}
+
+createCoins();
+
+const enemies = [];
+
+function createEnemies(){
+
+    for(let i = 1; i < platforms.length; i++){
+
+        enemies.push({
+
+            x: platforms[i].x + 20,
+            y: platforms[i].y - 30,
+
+            width: 40,
+            height: 30,
+
+            direction: Math.random() > 0.5 ? 1 : -1,
+
+            minX: platforms[i].x,
+            maxX: platforms[i].x + platforms[i].w - 40,
+
+            speed: Math.random() * 2 + 1
+
+        });
+
+    }
+
+}
+
+createEnemies();
+
+document.addEventListener("keydown",(e)=>{
+    keys[e.key]=true;
+});
+
+document.addEventListener("keyup",(e)=>{
+    keys[e.key]=false;
+});
+
+function updatePlayer(){
+
+    player.velocityX = 0;
+
+    if(keys["ArrowLeft"]){
+        player.velocityX = -player.speed;
+    }
+
+    if(keys["ArrowRight"]){
+        player.velocityX = player.speed;
+    }
+
+    if(keys[" "] && player.grounded){
+        player.velocityY = player.jumpPower;
+        player.grounded = false;
+    }
+
+    player.x += player.velocityX;
+    player.y += player.velocityY;
+
+    player.velocityY += gravity;
+
+    player.grounded = false;
+
+    platforms.forEach(platform=>{
+
+        if(
+            player.x < platform.x + platform.w &&
+            player.x + player.width > platform.x &&
+            player.y < platform.y + platform.h &&
+            player.y + player.height > platform.y
+        ){
+
+            if(player.velocityY >= 0){
+                player.y = platform.y - player.height;
+                player.velocityY = 0;
+                player.grounded = true;
+            }
+        }
+    });
+
+    if(player.y > canvas.height){
+        loseLife();
+    }
+}
+
+function loseLife(){
+
+    lives--;
+
+    document.getElementById("lives").textContent = lives;
+
+    if(lives <= 0){
+        gameOver();
+        return;
+    }
+
+    player.x = canvas.width / 2 - player.width / 2;
+    player.y = 400;
+    player.velocityY = 0;
+}
+
+function updateEnemies(){
+
+    enemies.forEach(enemy=>{
+
+        enemy.x += enemy.direction * enemy.speed;
+
+        if(enemy.x <= enemy.minX){
+            enemy.direction = 1;
+        }
+
+        if(enemy.x >= enemy.maxX){
+            enemy.direction = -1;
+        }
+
+        if(
+            player.x < enemy.x + enemy.width &&
+            player.x + player.width > enemy.x &&
+            player.y < enemy.y + enemy.height &&
+            player.y + player.height > enemy.y
+        ){
+
+            loseLife();
+
+        }
+
+    });
+
+}
+
+function updateCoins(){
+
+    coins.forEach(coin=>{
+
+        if(coin.collected) return;
+
+        const dx = player.x + player.width/2 - coin.x;
+        const dy = player.y + player.height/2 - coin.y;
+
+        if(Math.sqrt(dx*dx + dy*dy) < 25){
+
+            coin.collected = true;
+
+            score += 100;
+
+            document.getElementById("score").textContent = score;
+
+        }
+
+    });
+
+    const remaining = coins.filter(c => !c.collected);
+
+    if(remaining.length === 0){
+
+        coins.length = 0;
+
+        createCoins();
+
+        score += 500;
+
+        document.getElementById("score").textContent = score;
+
+    }
+
+}
+
+
+
+function drawPlayer(){
+
+    ctx.fillStyle = player.color;
+    ctx.fillRect(
+        player.x,
+        player.y,
+        player.width,
+        player.height
+    );
+}
+
+function drawPlatforms(){
+
+    ctx.fillStyle = "#654321";
+
+    platforms.forEach(platform=>{
+        ctx.fillRect(
+            platform.x,
+            platform.y,
+            platform.w,
+            platform.h
+        );
+    });
+}
+
+function drawCoins(){
+
+    coins.forEach(coin=>{
+
+        if(coin.collected) return;
+
+        let floatingY =
+            coin.y +
+            Math.sin(Date.now() * 0.005 + coin.offset) * 5;
+
+        ctx.beginPath();
+
+        ctx.fillStyle = "gold";
+
+        ctx.arc(
+            coin.x,
+            floatingY,
+            10,
+            0,
+            Math.PI * 2
+        );
+
+        ctx.fill();
+
+    });
+
+}
+
+function drawEnemies(){
+
+    const colors = [
+        "green",
+        "purple",
+        "orange",
+        "blue",
+        "black"
+    ];
+
+    enemies.forEach(enemy=>{
+
+        ctx.fillStyle =
+            colors[
+                Math.floor(
+                    Math.abs(enemy.x) % colors.length
+                )
+            ];
+ctx.fillRect(
+    enemy.x,
+    enemy.y,
+    enemy.width,
+    enemy.height
+);
+
+ctx.fillStyle = "white";
+
+ctx.beginPath();
+ctx.arc(enemy.x + 12, enemy.y + 10, 4, 0, Math.PI * 2);
+ctx.fill();
+
+ctx.beginPath();
+ctx.arc(enemy.x + 28, enemy.y + 10, 4, 0, Math.PI * 2);
+ctx.fill();
+
+    });
+}
+
+
+function drawBackground(){
+
+    ctx.fillStyle = "#87CEEB";
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+
+    ctx.fillStyle = "white";
+
+    ctx.beginPath();
+    ctx.arc(100,80,40,0,Math.PI*2);
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.arc(150,70,40,0,Math.PI*2);
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.arc(200,80,40,0,Math.PI*2);
+    ctx.fill();
+}
+
+function gameOver(){
+
+    document.getElementById("gameOver").style.display="block";
+
+    document.getElementById(
+        "finalScore"
+    ).textContent =
+    "Puntuación Final: " + score;
+
+    cancelAnimationFrame(animationId);
+}
+
+let animationId;
+
+function gameLoop(){
+
+    drawBackground();
+
+    updatePlayer();
+    updateEnemies();
+    updateCoins();
+
+    drawPlatforms();
+    drawCoins();
+    drawEnemies();
+    drawPlayer();
+
+    animationId = requestAnimationFrame(gameLoop);
+}
+
+gameLoop();
+
+</script>
+
 </body>
 </html>
