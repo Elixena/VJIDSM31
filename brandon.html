@@ -7,136 +7,207 @@
 <title>Submarine | Reseña</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
 
-body{
-  font-family: Arial, Helvetica, sans-serif;
-  background:#f4f1e8;
-  color:#1b1b1b;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f4f1e8;
+    color:#1b1b1b;
+    line-height:1.7;
+}
+
+/* HERO */
+
 .hero{
-  min-height:100vh;
-  background:
+    min-height:100vh;
+    background:
     linear-gradient(rgba(0,32,54,.55),rgba(0,32,54,.95)),
     url("https://m.media-amazon.com/images/M/MV5BMTQ5NDA1OTM0NV5BMl5BanBnXkFtZTcwMTM1NDQ0NA@@._V1_.jpg");
-  background-size:cover;
-  background-position:center;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  color:white;
-  padding:40px;
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:white;
+    padding:40px;
 }
 
 .hero h1{
-  font-size:clamp(4rem,12vw,9rem);
-  letter-spacing:8px;
-  color:#ffd447;
+    font-size:clamp(4rem,12vw,9rem);
+    letter-spacing:8px;
+    color:#ffd447;
 }
 
 .hero p{
-  font-size:1.3rem;
-  max-width:750px;
-  margin:20px auto;
+    font-size:1.3rem;
+    max-width:750px;
+    margin:20px auto;
 }
 
 .btn{
-  display:inline-block;
-  margin-top:20px;
-  padding:12px 25px;
-  border:2px solid #ffd447;
-  color:#ffd447;
-  text-decoration:none;
-  font-weight:bold;
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 25px;
+    border:2px solid #ffd447;
+    color:#ffd447;
+    text-decoration:none;
+    font-weight:bold;
+    transition:.3s;
 }
 
+.btn:hover{
+    background:#ffd447;
+    color:#003049;
+}
+
+/* CONTENIDO */
+
 main{
-  max-width:1150px;
-  margin:auto;
-  padding:60px 25px;
+    max-width:1150px;
+    margin:auto;
+    padding:60px 25px;
 }
 
 section{
-  margin-bottom:70px;
+    margin-bottom:70px;
 }
 
 h2{
-  font-size:2.3rem;
-  color:#0076a8;
-  margin-bottom:20px;
+    font-size:2.3rem;
+    color:#0076a8;
+    margin-bottom:20px;
 }
+
+/* GRID */
 
 .grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:35px;
-  align-items:center;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:35px;
+    align-items:stretch;
 }
+
+/* TARJETAS */
 
 .card{
-  background:white;
-  padding:30px;
-  border-radius:12px;
-  box-shadow:0 10px 25px rgba(0,0,0,.12);
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 10px 25px rgba(0,0,0,.12);
 }
+
+/* TODAS LAS IMÁGENES */
 
 img{
-  width:100%;
-  border-radius:12px;
-  box-shadow:0 10px 25px rgba(0,0,0,.2);
+    width:100%;
+    height:100%;
+    display:block;
+    object-fit:cover;
+    border-radius:12px;
+    box-shadow:0 10px 25px rgba(0,0,0,.2);
 }
 
+/* IMÁGENES DE LAS SECCIONES */
+
+.grid img{
+    min-height:450px;
+}
+
+/* INFORMACIÓN */
+
 .info{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:20px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
 }
 
 .info div{
-  background:#003049;
-  color:white;
-  padding:22px;
-  border-radius:12px;
+    background:#003049;
+    color:white;
+    padding:22px;
+    border-radius:12px;
 }
 
 .info strong{
-  color:#ffd447;
-  display:block;
-  margin-bottom:6px;
+    display:block;
+    color:#ffd447;
+    margin-bottom:8px;
 }
+
+/* GALERÍA */
 
 .gallery{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:22px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:22px;
 }
+
+.gallery img{
+    height:320px;
+}
+
+/* FRASE */
 
 .quote{
-  background:#ffd447;
-  padding:40px;
-  font-size:1.6rem;
-  font-style:italic;
-  text-align:center;
-  border-radius:12px;
+    background:#ffd447;
+    padding:40px;
+    border-radius:12px;
+    text-align:center;
+    font-size:1.6rem;
+    font-style:italic;
 }
+
+/* CALIFICACIÓN */
 
 .rating{
-  font-size:2rem;
-  color:#0076a8;
-  margin-top:15px;
+    margin-top:20px;
+    font-size:2rem;
+    color:#0076a8;
 }
+
+/* FOOTER */
 
 footer{
-  background:#003049;
-  color:white;
-  text-align:center;
-  padding:30px;
+    background:#003049;
+    color:white;
+    text-align:center;
+    padding:30px;
 }
 
-@media(max-width:800px){
-  .grid{grid-template-columns:1fr}
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .grid img{
+        min-height:350px;
+    }
+
+    .hero h1{
+        letter-spacing:4px;
+    }
+
+}
+
+@media(max-width:600px){
+
+    .gallery img{
+        height:250px;
+    }
+
+    h2{
+        font-size:1.9rem;
+    }
+
 }
 </style>
 </head>
@@ -181,11 +252,11 @@ footer{
     </p>
   </div>
 
-  <img src="https://m.media-amazon.com/images/M/MV5BMTQ5NDA1OTM0NV5BMl5BanBnXkFtZTcwMTM1NDQ0NA@@._V1_.jpg" alt="Poster de Submarine">
+  <img src="img/submarineportada.jpg" alt="Poster de Submarine">
 </section>
 
 <section class="grid">
-  <img src="https://static1.colliderimages.com/wordpress/wp-content/uploads/submarine-movie-image.jpg" alt="Oliver Tate en Submarine">
+  <img src="img/submarine2.webp" alt="Oliver Tate en Submarine">
 
   <div class="card">
     <h2>Reseña</h2>
@@ -229,11 +300,11 @@ footer{
 <section>
   <h2>Galería de imágenes</h2>
   <div class="gallery">
-    <img src="https://m.media-amazon.com/images/M/MV5BMTQ5NDA1OTM0NV5BMl5BanBnXkFtZTcwMTM1NDQ0NA@@._V1_.jpg" alt="Poster de Submarine">
-    <img src="https://static1.colliderimages.com/wordpress/wp-content/uploads/submarine-movie-image.jpg" alt="Escena de Submarine">
-    <img src="https://www.indiewire.com/wp-content/uploads/2011/05/submarine.jpg" alt="Oliver y Jordana en Submarine">
+    <img src="img/subportada.jpg" alt="Poster de Submarine">
+    <img src="img/escenasubmarine.jpg" alt="Escena de Submarine">
+    <img src="img/Submarineoliver.jpg" alt="Oliver y Jordana en Submarine">
   </div>
-</section>
+</section>|
 
 <section class="card">
   <h2>Música</h2>
