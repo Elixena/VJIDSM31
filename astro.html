@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cosmos Infinito | Portal de Astronomía</title>
+    <title>Cosmos Infinito | La Enciclopedia del Universo</title>
     <link rel="stylesheet" href="astrostyle.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -15,87 +15,185 @@
             <ul class="nav-links">
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#sistema-solar">Sistema Solar</a></li>
-                <li><a href="#constelaciones">Constelaciones</a></li>
-                <li><a href="#fenomenos">Fenómenos</a></li>
+                <li><a href="#estrellas">Estrellas</a></li>
+                <li><a href="#exoplanetas">Exoplanetas</a></li>
+                <li><a href="#cosmologia">Cosmología</a></li>
+                <li><a href="#exploracion">Exploración</a></li>
             </ul>
         </nav>
     </header>
 
     <section id="inicio" class="hero">
         <div class="hero-content">
-            <h1>Explora los Misterios del Universo</h1>
-            <p>Desde la inmensidad de nuestra galaxia hasta los enigmáticos agujeros negros. Acompáñanos en este viaje a través del espacio y el tiempo para descubrir los secretos que esconden las estrellas.</p>
-            <a href="#sistema-solar" class="btn-primary">Iniciar Viaje</a>
+            <h1>Descifra los Secretos del Cosmos</h1>
+            <p>Un viaje exhaustivo desde nuestro vecindario solar hasta los confines del espacio profundo, la materia oscura y el origen del tiempo mismo.</p>
+            <a href="#sistema-solar" class="btn-primary">Iniciar Expedición</a>
         </div>
     </section>
 
     <section id="sistema-solar" class="section dark-bg">
         <div class="container">
-            <h2>Nuestro Sistema Solar</h2>
-            <p class="section-desc">Un vecindario cósmico gobernado por la gravedad de nuestra estrella local, el Sol. Alberga una fascinante variedad de mundos, desde planetas rocosos y abrasadores hasta gigantes gaseosos y helados.</p>
+            <h2 class="section-title">El Sistema Solar en Detalle</h2>
+            <p class="section-desc">Un sistema estelar dinámico formado hace 4.600 millones de años a partir del colapso gravitacional de una nube molecular gigante.</p>
             
             <div class="grid-cards">
                 <article class="card">
                     <div class="card-icon">☀️</div>
                     <h3>El Sol</h3>
-                    <p>Una estrella enana amarilla (tipo G) que contiene el 99.86% de toda la masa del Sistema Solar. En su núcleo, fusiona unos 600 millones de toneladas de hidrógeno en helio cada segundo.</p>
+                    <p>Enana amarilla (tipo espectral G2V). Fusiona 600 millones de toneladas de hidrógeno por segundo. Su corona alcanza temperaturas de millones de grados, un misterio que la sonda Parker está estudiando actualmente.</p>
                 </article>
                 <article class="card">
-                    <div class="card-icon">🌍</div>
+                    <div class="card-icon">🪨</div>
                     <h3>Planetas Interiores</h3>
-                    <p>Mercurio, Venus, la Tierra y Marte. Son planetas telúricos, de superficie rocosa y densa. Venus destaca por su efecto invernadero descontrolado, mientras que Marte alberga el volcán más grande conocido: el Monte Olimpo.</p>
+                    <p><strong>Mercurio:</strong> Sin atmósfera, temperaturas extremas (-180°C a 430°C).<br>
+                    <strong>Venus:</strong> Lluvia de ácido sulfúrico y 462°C constantes.<br>
+                    <strong>Tierra:</strong> El único mundo conocido con tectónica de placas activa y vida.<br>
+                    <strong>Marte:</strong> Hogar del Monte Olimpo y antiguos lechos de ríos secos.</p>
                 </article>
                 <article class="card">
-                    <div class="card-icon">🪐</div>
-                    <h3>Gigantes Gaseosos</h3>
-                    <p>Júpiter y Saturno. Compuestos principalmente de hidrógeno y helio. Júpiter es tan masivo que podría contener a todos los demás planetas en su interior, y Saturno es famoso por su complejo sistema de anillos de hielo y polvo.</p>
+                    <div class="card-icon">🌪️</div>
+                    <h3>Los Gigantes Gaseosos</h3>
+                    <p><strong>Júpiter:</strong> Posee la Gran Mancha Roja, una tormenta anticiclónica que lleva activa siglos, y lunas oceánicas como Europa.<br>
+                    <strong>Saturno:</strong> Destaca por sus anillos compuestos de hielo y roca, y su luna Titán, que tiene lagos de metano líquido.</p>
+                </article>
+                <article class="card">
+                    <div class="card-icon">❄️</div>
+                    <h3>Los Gigantes Helados</h3>
+                    <p><strong>Urano:</strong> Rota de lado (inclinación de 98°), posiblemente debido a un impacto masivo en el pasado.<br>
+                    <strong>Neptuno:</strong> El planeta más ventoso, con vientos supersónicos que superan los 2,000 km/h.</p>
+                </article>
+                <article class="card">
+                    <div class="card-icon">☄️</div>
+                    <h3>Cinturones y Nubes</h3>
+                    <p>El <strong>Cinturón de Asteroides</strong> entre Marte y Júpiter. El <strong>Cinturón de Kuiper</strong>, hogar de Plutón y Haumea. Y la teórica <strong>Nube de Oort</strong>, la frontera final donde nacen los cometas de periodo largo.</p>
                 </article>
             </div>
         </div>
     </section>
 
-    <section id="constelaciones" class="section light-bg">
+    <section id="estrellas" class="section light-bg">
         <div class="container">
-            <h2>Catálogo de Constelaciones y Estrellas</h2>
-            <p class="section-desc">Las constelaciones son agrupaciones convencionales de estrellas cuya posición en el cielo nocturno es aparentemente invariable. Han guiado a la humanidad desde la antigüedad.</p>
+            <h2 class="section-title">El Ciclo de Vida Estelar</h2>
+            <p class="section-desc">Las estrellas no son eternas. Nacen, evolucionan y mueren en procesos violentos que siembran el universo con elementos pesados.</p>
             
             <div class="content-flex">
                 <div class="text-box">
-                    <h3>Orionis (Orión)</h3>
-                    <p>Una de las constelaciones más reconocibles, visible en todo el mundo. Contiene gigantes rojas como <strong>Betelgeuse</strong>, que está en las etapas finales de su vida, y supergigantes azul-blancas como <strong>Rigel</strong>. Su famoso "Cinturón" está formado por tres estrellas brillantes: Alnitak, Alnilam y Mintaka.</p>
+                    <h3>1. Nebulosa y Protoestrella</h3>
+                    <p>Todo comienza en inmensas nubes de polvo y gas. La gravedad colapsa regiones densas formando un núcleo caliente. Cuando la temperatura alcanza los 10 millones de grados, se enciende la fusión nuclear.</p>
                 </div>
                 <div class="text-box">
-                    <h3>Ursa Major (Osa Mayor)</h3>
-                    <p>Fundamental para la navegación en el hemisferio norte. Su asterismo principal, el "Carro Grande", permite localizar a Polaris, la Estrella Polar, trazando una línea a través de las estrellas Merak y Dubhe.</p>
+                    <h3>2. Secuencia Principal</h3>
+                    <p>Es la etapa adulta de la estrella, donde pasa el 90% de su vida en equilibrio hidrostático: la gravedad que empuja hacia adentro es contrarrestada por la presión de la fusión hacia afuera.</p>
+                </div>
+                <div class="text-box">
+                    <h3>3. Muerte de Estrellas Bajas (Como el Sol)</h3>
+                    <p>Al agotar su hidrógeno, se expanden en <strong>Gigantes Rojas</strong>. Finalmente, expulsan sus capas externas formando una <strong>Nebulosa Planetaria</strong>, dejando un núcleo brillante del tamaño de la Tierra llamado <strong>Enana Blanca</strong>.</p>
+                </div>
+                <div class="text-box">
+                    <h3>4. Supernovas y Agujeros Negros</h3>
+                    <p>Estrellas masivas (8 veces mayores al Sol) fusionan elementos hasta llegar al hierro. Al no poder fusionar el hierro, colapsan bajo su propia gravedad, explotando como <strong>Supernovas</strong>. El núcleo remanente puede ser una <strong>Estrella de Neutrones</strong> o, si es muy masiva, colapsar en un <strong>Agujero Negro</strong>.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="fenomenos" class="section dark-bg">
+    <section id="exoplanetas" class="section dark-bg">
         <div class="container">
-            <h2>Fenómenos Astrofísicos Extremos</h2>
+            <h2 class="section-title">Exoplanetas: Nuevos Mundos</h2>
+            <p class="section-desc">Planetas que orbitan estrellas fuera de nuestro sistema solar. Hasta la fecha, hemos confirmado más de 5,500 de estos mundos.</p>
+            
+            <div class="grid-cards">
+                <article class="card border-accent">
+                    <h3>Júpiteres Calientes</h3>
+                    <p>Gigantes gaseosos que orbitan extremadamente cerca de sus estrellas. Tienen "años" que duran solo unos pocos días terrestres y temperaturas que vaporizan el metal.</p>
+                </article>
+                <article class="card border-accent">
+                    <h3>Super-Tierras</h3>
+                    <p>Planetas rocosos más grandes que la Tierra pero más pequeños que Neptuno. Podrían ser mundos completamente cubiertos por océanos o enormes rocas sin atmósfera.</p>
+                </article>
+                <article class="card border-accent">
+                    <h3>Zona de Habitabilidad</h3>
+                    <p>La región alrededor de una estrella donde las condiciones no son ni demasiado calientes ni demasiado frías para que exista <strong>agua líquida</strong> en la superficie del planeta. Mundos como TRAPPIST-1e son objetivos principales para buscar firmas biológicas.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="cosmologia" class="section light-bg">
+        <div class="container">
+            <h2 class="section-title">Cosmología: El Lado Oscuro del Universo</h2>
             
             <div class="feature-row">
                 <div class="feature-text">
-                    <h3>Agujeros Negros</h3>
-                    <p>Regiones del espacio-tiempo donde la gravedad es tan intensa que ni siquiera la luz puede escapar. Se forman a partir del colapso gravitacional de estrellas masivas tras una explosión de supernova. En su centro reside una singularidad, un punto de densidad infinita, rodeado por el "horizonte de eventos".</p>
+                    <h3>Materia Oscura</h3>
+                    <p>Representa aproximadamente el 27% del universo. No emite, no refleja ni absorbe luz, pero sabemos que está ahí porque su gravedad mantiene unidas a las galaxias. Sin ella, las estrellas en los bordes de la Vía Láctea saldrían volando al espacio intergaláctico.</p>
                 </div>
             </div>
 
             <div class="feature-row reverse">
                 <div class="feature-text">
-                    <h3>Púlsares y Estrellas de Neutrones</h3>
-                    <p>El núcleo colapsado de una estrella supermasiva. Tienen el tamaño de una ciudad pero una masa mayor a la de nuestro Sol. Los púlsares son estrellas de neutrones altamente magnetizadas que giran a velocidades increíbles, emitiendo haces de radiación electromagnética como si fueran faros cósmicos.</p>
+                    <h3>Energía Oscura</h3>
+                    <p>Constituye el 68% del universo. Es una fuerza misteriosa y repulsiva que está provocando que la expansión del universo se acelere. En un futuro lejano, esto podría provocar que las galaxias vecinas se alejen tanto que desaparezcan de nuestro horizonte observable.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="exploracion" class="section dark-bg">
+        <div class="container">
+            <h2 class="section-title">Nuestra Huella en el Cosmos</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>1977 - Programa Voyager</h3>
+                        <p>Las sondas Voyager 1 y 2 fueron lanzadas. Hoy son los objetos fabricados por el hombre más alejados de la Tierra, cruzando el espacio interestelar llevando el "Disco de Oro", un mensaje de la humanidad.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>1998 - Estación Espacial Internacional (ISS)</h3>
+                        <p>Un laboratorio de microgravedad en órbita terrestre baja, símbolo de la cooperación internacional. Ha estado habitada ininterrumpidamente desde el año 2000.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>2012 - Rover Curiosity en Marte</h3>
+                        <p>Aterrizaje del vehículo robótico en el cráter Gale. Descubrió que Marte tuvo un entorno habitable en el pasado, con lagos de agua dulce perdurables.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>2021 - Telescopio James Webb</h3>
+                        <p>La maravilla de la ingeniería óptica. Gracias a sus sensores infrarrojos, puede ver a través del polvo cósmico y capturar la luz de las primeras galaxias formadas hace más de 13,500 millones de años.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <footer>
-        <div class="footer-content">
-            <p>&copy; 2026 Cosmos Infinito. Diseñado para explorar el universo.</p>
-            <p><em>"Miremos a las estrellas y no a nuestros pies." - Stephen Hawking</em></p>
+        <div class="footer-grid">
+            <div class="footer-about">
+                <div class="logo">Cosmos<span>Infinito</span></div>
+                <p>La astronomía nos enseña humildad y perspectiva. Somos una forma en que el cosmos se conoce a sí mismo.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Índice</h4>
+                <ul>
+                    <li><a href="#sistema-solar">Sistema Solar</a></li>
+                    <li><a href="#estrellas">Vida Estelar</a></li>
+                    <li><a href="#exoplanetas">Exoplanetas</a></li>
+                    <li><a href="#cosmologia">Cosmología</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Cosmos Infinito. Per aspera ad astra.</p>
         </div>
     </footer>
 
