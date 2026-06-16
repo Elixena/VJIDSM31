@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ghostface | Universo Scream</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Poppins:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #090909;
+            color: white;
+        }
+
+        header {
+
+            height: 70vh;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            align-items: center;
+
+            text-align: center;
+
+            padding: 20px;
+
+            background:
+                linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, 0.813)),
+                url("https://i.pinimg.com/736x/ee/46/4d/ee464d24c2207f25a69b1c6774d06931.jpg");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        header h1 {
+
+            font-size: 7rem;
+
+            font-family: 'Creepster';
+
+            color: red;
+
+            text-shadow: 0 0 30px red;
+        }
+
+        header p {
+
+            font-size: 1.3rem;
+
+            max-width: 900px;
+
+            line-height: 1.8;
+
+            margin-top: 20px;
+        }
+
+        section {
+
+            padding: 100px 10%;
+        }
+
+        .titulo {
+
+            text-align: center;
+
+            font-size: 4rem;
+
+            font-family: 'Creepster';
+
+            color: red;
+
+            margin-bottom: 60px;
+        }
+
+        .info {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            justify-content: center;
+
+            gap: 30px;
+        }
+
+        .card {
+
+            width: 350px;
+
+            background: #141414;
+
+            padding: 30px;
+
+            border-radius: 20px;
+
+            transition: .3s;
+        }
+
+        .card:hover {
+
+            transform: translateY(-10px);
+
+            box-shadow: 0 0 25px rgba(255, 0, 0, .5);
+        }
+
+        .card h2 {
+
+            color: red;
+
+            margin-bottom: 15px;
+        }
+
+        .card p {
+
+            line-height: 1.8;
+        }
+
+        .asesinos {
+
+            display: grid;
+
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+            gap: 25px;
+        }
+
+        .persona {
+
+            background: #121212;
+
+            padding: 25px;
+
+            border-radius: 20px;
+
+            border-left: 6px solid red;
+
+            transition: .3s;
+        }
+
+        .persona:hover {
+
+            transform: scale(1.03);
+
+            box-shadow: 0 0 20px red;
+        }
+
+        .persona h3 {
+
+            color: red;
+
+            margin-bottom: 10px;
+        }
+
+        .frase {
+
+            background: #111;
+
+            padding: 100px 30px;
+
+            text-align: center;
+        }
+
+        .frase h2 {
+
+            font-family: 'Creepster';
+
+            font-size: 3rem;
+
+            color: red;
+        }
+
+        .frase p {
+
+            margin-top: 20px;
+
+            font-size: 1.2rem;
+        }
+
+        .boton {
+
+            text-align: center;
+
+            margin: 60px;
+        }
+
+        .boton a {
+
+            display: inline-block;
+
+            padding: 18px 40px;
+
+            background: red;
+
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 50px;
+
+            font-weight: bold;
+
+            transition: .3s;
+        }
+
+        .boton a:hover {
+
+            transform: scale(1.1);
+
+            box-shadow: 0 0 25px red;
+        }
+
+        footer {
+
+            background: black;
+
+            padding: 40px;
+
+            text-align: center;
+        }
+
+        @media(max-width:768px) {
+
+            header h1 {
+                font-size: 4rem;
+            }
+
+            .titulo {
+                font-size: 3rem;
+            }
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+
+        <h1>GHOSTFACE</h1>
+
+        <p>
+
+            Más que un asesino, una identidad que ha pasado por distintas personas a lo largo de los años.
+
+        </p>
+
+    </header>
+
+    <section>
+
+        <h1 class="titulo">
+
+            ¿Quién es Ghostface?
+
+        </h1>
+
+        <div class="info">
+
+            <div class="card">
+
+                <h2>👻 La máscara</h2>
+
+                <p>
+
+                    Es uno de los símbolos más reconocidos del cine de terror y está inspirada en la famosa pintura "El
+                    Grito".
+
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h2>📞 Su método</h2>
+
+                <p>
+
+                    Ghostface suele llamar a sus víctimas antes de atacar, jugando con ellas psicológicamente.
+
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h2>🔪 Su arma</h2>
+
+                <p>
+
+                    Su arma principal es un cuchillo de caza, aunque lo más peligroso es su inteligencia.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section>
+
+        <h1 class="titulo">
+
+            Personas que fueron Ghostface
+
+        </h1>
+
+        <div class="asesinos">
+
+            <div class="persona">
+
+                <h3>Billy Loomis</h3>
+
+                <p>Uno de los primeros Ghostface.</p>
+
+            </div>
+
+            <div class="persona">
+
+                <h3>Stu Macher</h3>
+
+                <p>Cómplice de Billy.</p>
+
+            </div>
+
+            <div class="persona">
+
+                <h3>Mickey Altieri</h3>
+
+                <p>Asesino de Scream 2.</p>
+
+            </div>
+
+            <div class="persona">
+
+                <h3>Mrs. Loomis</h3>
+
+                <p>Madre de Billy.</p>
+
+            </div>
+
+            <div class="persona">
+
+                <h3>Roman Bridger</h3>
+
+                <p>Director de cine y medio hermano de Sidney.</p>
+
+            </div>
+
+            <div class="persona">
+
+                <h3>Jill Roberts</h3>
+
+                <p>Prima de Sidney.</p>
+
+            </div>
+
+            <div class="persona">
+
+                <h3>Charlie Walker</h3>
+
+                <p>Cómplice en Scream 4.</p>
+
+            </div>
+
+            <div class="persona">
+
+                <h3>Richie Kirsch</h3>
+
+                <p>Villano de Scream (2022).</p>
+
+            </div>
+
+            <div class="persona">
+
+                <h3>Amber Freeman</h3>
+
+                <p>Cómplice de Richie.</p>
+
+            </div>
+
+            <div class="persona">
+
+                <h3>Wayne Bailey</h3>
+
+                <p>Villano de Scream VI.</p>
+
+            </div>
+
+            <div class="persona">
+
+                <h3>Ethan Bailey</h3>
+
+                <p>Hijo de Wayne Bailey.</p>
+
+            </div>
+
+            <div class="persona">
+
+                <h3>Quinn Bailey</h3>
+
+                <p>Hija de Wayne Bailey.</p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="frase">
+
+        <h2>
+
+            "Ghostface puede ser cualquiera."
+
+        </h2>
+
+        <p>
+
+            Y eso es lo que lo convierte en uno de los personajes más aterradores de la historia del cine.
+
+        </p>
+
+    </section>
+
+    <div class="boton">
+
+        <a href="scream-page.html">
+
+            🏠 Volver al Inicio
+
+        </a>
+
+    </div>
+
+    <footer>
+
+        <p>
+
+            🔪 Universo Scream | Museo Ghostface
+
+        </p>
+
+    </footer>
+
+</body>
+
+</html>
