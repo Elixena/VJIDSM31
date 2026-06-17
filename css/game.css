@@ -1,0 +1,437 @@
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            background: #0b0b0f;
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .contenedor {
+            width: 900px;
+            max-width: 95vw;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+            color: #ffcc66;
+            text-shadow: 0 0 12px #000;
+            letter-spacing: 2px;
+        }
+
+        .historia {
+            margin-bottom: 12px;
+            font-size: 15px;
+            color: #d8d8d8;
+        }
+
+        .info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .btn {
+            background: #ffcc66;
+            color: #111;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #ffe09a;
+        }
+
+        .juego {
+            position: relative;
+            width: 900px;
+            height: 520px;
+            max-width: 95vw;
+            background:
+                linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px),
+                #202027;
+            background-size: 40px 40px;
+            border: 6px solid #111;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 0 35px rgba(0,0,0,0.8);
+        }
+
+        /* Paredes */
+        .pared {
+            position: absolute;
+            background: #4a4a55;
+            border: 3px solid #19191f;
+            box-shadow: inset 0 0 12px rgba(0,0,0,0.8);
+        }
+
+        .p1 {
+            left: 120px;
+            top: 80px;
+            width: 35px;
+            height: 310px;
+        }
+
+        .p2 {
+            left: 250px;
+            top: 0;
+            width: 35px;
+            height: 260px;
+        }
+
+        .p3 {
+            left: 390px;
+            top: 250px;
+            width: 35px;
+            height: 270px;
+        }
+
+        .p4 {
+            left: 520px;
+            top: 70px;
+            width: 35px;
+            height: 310px;
+        }
+
+        .p5 {
+            left: 650px;
+            top: 0;
+            width: 35px;
+            height: 270px;
+        }
+
+        .p6 {
+            left: 720px;
+            top: 360px;
+            width: 150px;
+            height: 35px;
+        }
+
+        /* Celda */
+        .celda {
+            position: absolute;
+            left: 20px;
+            top: 180px;
+            width: 85px;
+            height: 150px;
+            background: #15151a;
+            border: 4px solid #777;
+            border-radius: 6px;
+        }
+
+        .celda::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(
+                90deg,
+                transparent 0px,
+                transparent 12px,
+                #999 12px,
+                #999 17px
+            );
+        }
+
+        .celda span {
+            position: absolute;
+            bottom: -28px;
+            left: 5px;
+            font-size: 13px;
+            color: #aaa;
+        }
+
+        /* Salida */
+        .salida {
+            position: absolute;
+            right: 18px;
+            top: 185px;
+            width: 80px;
+            height: 135px;
+            background: linear-gradient(#2e7d32, #0f3d13);
+            border: 4px solid #8df28d;
+            border-radius: 8px;
+            box-shadow: 0 0 20px #34ff77;
+        }
+
+        .salida::after {
+            content: "SALIDA";
+            position: absolute;
+            top: 50px;
+            left: 7px;
+            color: white;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        /* Personaje */
+        .personaje {
+            position: absolute;
+            left: 45px;
+            top: 230px;
+            width: 34px;
+            height: 50px;
+            transition: 0.05s linear;
+            z-index: 10;
+        }
+
+        .cabeza {
+            position: absolute;
+            top: 0;
+            left: 8px;
+            width: 18px;
+            height: 18px;
+            background: #d2a679;
+            border-radius: 50%;
+            border: 2px solid #111;
+        }
+
+        .cuerpo {
+            position: absolute;
+            top: 17px;
+            left: 5px;
+            width: 24px;
+            height: 28px;
+            background: #050505;
+            border-radius: 8px;
+            border: 2px solid #222;
+        }
+
+        .pierna {
+            position: absolute;
+            top: 42px;
+            width: 9px;
+            height: 14px;
+            background: #111;
+            border-radius: 5px;
+        }
+
+        .pierna.izq {
+            left: 7px;
+        }
+
+        .pierna.der {
+            right: 7px;
+        }
+
+        /* Pan / comida */
+        .comida {
+            position: absolute;
+            width: 26px;
+            height: 18px;
+            background: #d99a43;
+            border-radius: 60% 60% 35% 35%;
+            border: 2px solid #8a4d16;
+            box-shadow: 0 0 12px rgba(255,204,102,0.5);
+        }
+
+        .comida::after {
+            content: "";
+            position: absolute;
+            top: 4px;
+            left: 5px;
+            width: 4px;
+            height: 4px;
+            background: #fff0b5;
+            border-radius: 50%;
+            box-shadow: 7px 2px 0 #fff0b5, 14px 0 0 #fff0b5;
+        }
+
+        .c1 {
+            left: 190px;
+            top: 430px;
+        }
+
+        .c2 {
+            left: 340px;
+            top: 75px;
+        }
+
+        .c3 {
+            left: 595px;
+            top: 430px;
+        }
+
+        /* Guardias */
+        .guardia {
+            position: absolute;
+            width: 38px;
+            height: 55px;
+            z-index: 9;
+        }
+
+        .guardia .g-cabeza {
+            position: absolute;
+            top: 0;
+            left: 9px;
+            width: 20px;
+            height: 20px;
+            background: #f0c08a;
+            border-radius: 50%;
+            border: 2px solid #111;
+        }
+
+        .guardia .g-gorra {
+            position: absolute;
+            top: -4px;
+            left: 7px;
+            width: 24px;
+            height: 10px;
+            background: #1d3f7a;
+            border-radius: 8px 8px 2px 2px;
+        }
+
+        .guardia .g-cuerpo {
+            position: absolute;
+            top: 18px;
+            left: 5px;
+            width: 28px;
+            height: 32px;
+            background: #1d3f7a;
+            border-radius: 7px;
+            border: 2px solid #0b1a36;
+        }
+
+        .guardia::after {
+            content: "";
+            position: absolute;
+            top: 20px;
+            left: -65px;
+            width: 170px;
+            height: 90px;
+            background: radial-gradient(circle, rgba(255,255,140,0.24), transparent 65%);
+            clip-path: polygon(50% 50%, 0 0, 0 100%);
+            animation: luzGuardia 2s infinite alternate;
+            pointer-events: none;
+        }
+
+        @keyframes luzGuardia {
+            from {
+                opacity: 0.35;
+            }
+            to {
+                opacity: 0.8;
+            }
+        }
+
+        .g1 {
+            left: 310px;
+            top: 180px;
+            animation: moverG1 4s infinite alternate linear;
+        }
+
+        .g2 {
+            left: 580px;
+            top: 120px;
+            animation: moverG2 3.5s infinite alternate linear;
+        }
+
+        .g3 {
+            left: 740px;
+            top: 270px;
+            animation: moverG3 4.5s infinite alternate linear;
+        }
+
+        @keyframes moverG1 {
+            from {
+                top: 80px;
+            }
+            to {
+                top: 390px;
+            }
+        }
+
+        @keyframes moverG2 {
+            from {
+                top: 70px;
+            }
+            to {
+                top: 390px;
+            }
+        }
+
+        @keyframes moverG3 {
+            from {
+                left: 700px;
+            }
+            to {
+                left: 820px;
+            }
+        }
+
+        /* Mensaje */
+        .mensaje {
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.82);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 100;
+            text-align: center;
+            padding: 25px;
+        }
+
+        .mensaje h2 {
+            font-size: 38px;
+            color: #ffcc66;
+            margin-bottom: 12px;
+        }
+
+        .mensaje p {
+            max-width: 650px;
+            font-size: 18px;
+            line-height: 1.5;
+            color: #e6e6e6;
+            margin-bottom: 20px;
+        }
+
+        .oculto {
+            display: none;
+        }
+
+        .controles {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #bbb;
+        }
+
+        @media (max-width: 700px) {
+            .juego {
+                transform: scale(0.7);
+                transform-origin: top center;
+                height: 520px;
+            }
+
+            .contenedor {
+                height: 100vh;
+                overflow: hidden;
+            }
+
+            .info {
+                font-size: 13px;
+            }
+
+            h1 {
+                font-size: 22px;
+            }
+
+            .historia {
+                font-size: 13px;
+            }
+        }
