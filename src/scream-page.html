@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Universo Scream</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Poppins:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #090909;
+            color: white;
+        }
+
+        nav {
+
+            position: fixed;
+
+            top: 0;
+
+            width: 100%;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            padding: 20px 8%;
+
+            background: rgba(0, 0, 0, .85);
+
+            backdrop-filter: blur(10px);
+
+            z-index: 1000;
+        }
+
+        .logo {
+
+            font-size: 2.5rem;
+
+            font-family: 'Creepster';
+
+            color: red;
+        }
+
+        nav ul {
+
+            display: flex;
+
+            gap: 30px;
+
+            list-style: none;
+        }
+
+        nav a {
+
+            text-decoration: none;
+
+            color: white;
+
+            transition: .3s;
+        }
+
+        nav a:hover {
+
+            color: red;
+        }
+
+        .hero {
+
+            height: 100vh;
+
+            background:
+                linear-gradient(rgba(0, 0, 0, .65), rgba(0, 0, 0, .9)),
+                url("https://images6.alphacoders.com/116/1166036.jpg");
+
+            background-size: cover;
+
+            background-position: center;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            text-align: center;
+
+            padding: 20px;
+        }
+
+        .contenido {
+
+            max-width: 900px;
+        }
+
+        .hero h1 {
+
+            font-size: 7rem;
+
+            font-family: 'Creepster';
+
+            color: red;
+
+            text-shadow: 0 0 30px red;
+        }
+
+        .hero p {
+
+            font-size: 1.4rem;
+
+            margin-top: 25px;
+
+            line-height: 1.8;
+        }
+
+        .boton {
+
+            display: inline-block;
+
+            margin-top: 40px;
+
+            padding: 18px 40px;
+
+            background: red;
+
+            border-radius: 50px;
+
+            text-decoration: none;
+
+            color: white;
+
+            font-weight: bold;
+
+            transition: .3s;
+        }
+
+        .boton:hover {
+
+            transform: scale(1.1);
+
+            box-shadow: 0 0 25px red;
+        }
+
+        section {
+
+            padding: 100px 10%;
+        }
+
+        .titulo {
+
+            font-size: 4rem;
+
+            font-family: 'Creepster';
+
+            text-align: center;
+
+            margin-bottom: 60px;
+
+            color: red;
+        }
+
+        .intro {
+
+            max-width: 1000px;
+
+            margin: auto;
+
+            text-align: center;
+
+            line-height: 2;
+
+            font-size: 1.1rem;
+        }
+
+        .tarjetas {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            justify-content: center;
+
+            gap: 30px;
+        }
+
+        .card {
+
+            width: 320px;
+
+            background: #141414;
+
+            padding: 30px;
+
+            border-radius: 20px;
+
+            transition: .3s;
+
+            cursor: pointer;
+        }
+
+        .card:hover {
+
+            transform: translateY(-10px);
+
+            box-shadow: 0 0 25px red;
+        }
+
+        .card h2 {
+
+            margin-bottom: 15px;
+
+            color: red;
+        }
+
+        .timeline {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            justify-content: center;
+
+            gap: 30px;
+        }
+
+        .anio {
+
+            width: 220px;
+
+            background: #121212;
+
+            padding: 25px;
+
+            border-radius: 20px;
+
+            text-align: center;
+        }
+
+        .anio h3 {
+
+            color: red;
+
+            font-size: 2rem;
+        }
+
+        footer {
+
+            padding: 40px;
+
+            text-align: center;
+
+            background: black;
+        }
+
+        footer p {
+
+            opacity: .7;
+        }
+
+        @media(max-width:768px) {
+
+            .hero h1 {
+                font-size: 4rem;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <nav>
+
+        <div class="logo">
+
+            SCREAM
+
+        </div>
+
+        <ul>
+
+            <li><a href="./Historia.html">Historia</a></li>
+
+            <li><a href="#">Películas</a></li>
+
+            <li><a href="#">Personajes</a></li>
+
+            <li><a href="./ghost_face.html">Ghostface</a></li>
+
+            <li><a href="#">Tienda</a></li>
+
+        </ul>
+
+    </nav>
+
+    <section class="hero">
+
+        <div class="contenido">
+
+            <h1>UNIVERSO SCREAM</h1>
+
+            <p>
+
+                Una simple llamada telefónica dio inicio a una de las sagas de terror más importantes de la historia del
+                cine.
+
+                Descubre sus películas, personajes, secretos y el legado del asesino más icónico: Ghostface.
+
+            </p>
+
+            <a href="#explorar" class="boton">
+
+                🔪 Explorar
+
+            </a>
+
+        </div>
+
+    </section>
+
+    <section>
+
+        <h1 class="titulo">
+
+            Bienvenido a Woodsboro
+
+        </h1>
+
+        <div class="intro">
+
+            <p>
+
+                Scream no es solamente una película de terror.
+
+                Es una historia llena de misterio, traiciones, supervivencia y personajes inolvidables.
+
+                A lo largo de los años, distintas personas han utilizado la máscara de Ghostface para sembrar el miedo
+                en Woodsboro y otras ciudades.
+
+                Pero una pregunta sigue vigente...
+
+            </p>
+
+            <br>
+
+            <h2>
+
+                📞 ¿Cuál es tu película de terror favorita?
+
+            </h2>
+
+        </div>
+
+    </section>
+
+    <section id="explorar">
+
+        <h1 class="titulo">
+
+            Explorar el Universo
+
+        </h1>
+
+        <div class="tarjetas">
+
+            <div class="card">
+
+                <h2>📖 Historia</h2>
+
+                <p>
+
+                    Conoce el origen de Woodsboro y el inicio del terror.
+
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h2>🎬 Películas</h2>
+
+                <p>
+
+                    Explora todas las entregas de la saga Scream.
+
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h2>👥 Personajes</h2>
+
+                <p>
+
+                    Descubre a los protagonistas y sobrevivientes.
+
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h2>🔪 Ghostface</h2>
+
+                <p>
+
+                    Conoce a todas las personas que usaron la máscara.
+
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h2>🛒 Tienda</h2>
+
+                <p>
+
+                    Colección inspirada en el universo Scream.
+
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h2>🧠 Curiosidades</h2>
+
+                <p>
+
+                    Datos interesantes y secretos de la saga.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section>
+
+        <h1 class="titulo">
+
+            Línea del Tiempo
+
+        </h1>
+
+        <div class="timeline">
+
+            <div class="anio">
+
+                <h3>1996</h3>
+
+                <p>Scream</p>
+
+            </div>
+
+            <div class="anio">
+
+                <h3>1997</h3>
+
+                <p>Scream 2</p>
+
+            </div>
+
+            <div class="anio">
+
+                <h3>2000</h3>
+
+                <p>Scream 3</p>
+
+            </div>
+
+            <div class="anio">
+
+                <h3>2011</h3>
+
+                <p>Scream 4</p>
+
+            </div>
+
+            <div class="anio">
+
+                <h3>2022</h3>
+
+                <p>Scream</p>
+
+            </div>
+
+            <div class="anio">
+
+                <h3>2023</h3>
+
+                <p>Scream VI</p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <footer>
+
+        <p>
+
+            🩸 Bienvenido a Woodsboro | Fan Page no oficial
+
+        </p>
+
+    </footer>
+
+</body>
+
+</html>
