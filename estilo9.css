@@ -1,0 +1,106 @@
+/* Fondo general */
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #1b1a17;
+    color: #e8e3d8;
+}
+
+/* Portada principal */
+.hero {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(
+            rgba(0, 0, 0, 0.55),
+            rgba(0, 0, 0, 0.80)
+        ),
+        url("portada9.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.contenido-hero h1 {
+    font-size: 120px;
+    margin: 0;
+    color: #d4b87b;
+    text-shadow: 0 0 15px black, 0 0 25px black;
+}
+
+.contenido-hero p {
+    font-size: 28px;
+    color: #f0e8d8;
+    text-shadow: 2px 2px 8px black;
+    max-width: 700px;
+    margin: 15px auto 0;
+}
+
+/* Menú */
+nav {
+    background-color: rgba(58, 52, 45, 0.9);
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    position: sticky;
+    top: 0;
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+}
+
+nav a {
+    color: #e8e3d8;
+    text-decoration: none;
+    margin: 0 20px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #b89a5e;
+}
+
+/* Tarjetas */
+.tarjeta {
+    width: 85%;
+    margin: 30px auto;
+    background-color: rgba(70, 65, 58, 0.6);
+    padding: 25px;
+    border-radius: 15px;
+    border-left: 5px solid #b89a5e;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.tarjeta h2 {
+    color: #d4b87b;
+}
+
+/* Pie de página */
+footer {
+    background-color: #2a2622;
+    color: #bdb6aa;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+/* Contenido principal */
+main {
+    width: 85%;
+    margin: 30px auto;
+}
+
+
+/* Lista */
+ul {
+    list-style-type: square;
+    padding-left: 20px;
+}
+
+li {
+    margin: 10px 0;
+}
