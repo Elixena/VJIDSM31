@@ -1,9 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Versionamiento</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arcade Platformer</title>
+
+<style>
+
+body{
+    margin:0;
+    overflow:hidden;
+    background:#87CEEB;
+    font-family:Arial, sans-serif;
+}
+
+canvas{
+    display:block;
+    margin:auto;
+    background:linear-gradient(#87CEEB,#d8f3ff);
+    border:3px solid black;
+}
+
+#ui{
+    position:absolute;
+    top:10px;
+    left:10px;
+    color:white;
+    font-size:24px;
+    font-weight:bold;
+    text-shadow:2px 2px black;
+}
+
+#gameOver{
+    display:none;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    background:white;
+    padding:20px;
+    border:3px solid black;
+    text-align:center;
+}
+
+button{
+    padding:10px;
+    font-size:18px;
+}
+
+</style>
 </head>
 <body>
     <h1>Bienvenidos IDSM31</h1>

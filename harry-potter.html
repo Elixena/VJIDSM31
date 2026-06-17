@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El Prisionero de Azkaban</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:#050505;
+  color:#d8d0bd;
+  font-family:"Trebuchet MS", Arial, sans-serif;
+}
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:
+    radial-gradient(circle at top, rgba(120,120,120,.15), transparent 35%),
+    linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.95));
+  pointer-events:none;
+  z-index:-1;
+}
+
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:100;
+  padding:18px 40px;
+  display:flex;
+  justify-content:center;
+  gap:35px;
+  background:rgba(5,5,5,.75);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid rgba(180,180,180,.15);
+}
+
+nav a{
+  color:#c9b37e;
+  text-decoration:none;
+  letter-spacing:2px;
+  font-size:.85rem;
+  text-transform:uppercase;
+}
+
+nav a:hover{
+  color:#fff;
+}
+
+.hero{
+  min-height:100vh;
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,.35), #050505 95%),
+    url("img/1374887.png");
+  background-size:cover;
+  background-position:center;
+  display:flex;
+  align-items:center;
+  padding:120px 10%;
+}
+
+.hero-content{
+  max-width:760px;
+}
+
+.small-title{
+  color:#aaa;
+  letter-spacing:6px;
+  text-transform:uppercase;
+  margin-bottom:20px;
+}
+
+h1{
+  font-family:Georgia, serif;
+  font-size:clamp(3rem, 8vw, 6.5rem);
+  color:#e1d1a0;
+  line-height:.95;
+  text-shadow:0 0 25px #000;
+  margin-bottom:30px;
+}
+
+.hero p{
+  font-size:1.25rem;
+  line-height:1.8;
+  color:#ddd;
+  max-width:640px;
+}
+
+.btn{
+  display:inline-block;
+  margin-top:35px;
+  padding:14px 32px;
+  border:1px solid #c9b37e;
+  color:#c9b37e;
+  text-decoration:none;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  transition:.3s;
+}
+
+.btn:hover{
+  background:#c9b37e;
+  color:#111;
+}
+
+section{
+  padding:90px 10%;
+}
+
+.section-title{
+  font-family:Georgia, serif;
+  font-size:3rem;
+  color:#d9c48f;
+  margin-bottom:25px;
+}
+
+.dark-box{
+  background:rgba(15,15,15,.85);
+  border:1px solid rgba(201,179,126,.25);
+  padding:35px;
+  line-height:1.9;
+  box-shadow:0 0 40px rgba(0,0,0,.7);
+}
+
+.two-columns{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:35px;
+  align-items:center;
+}
+
+.image-card{
+  min-height:420px;
+  background:
+    linear-gradient(rgba(0,0,0,.25), rgba(0,0,0,.85)),
+    url("img/922834.jpg");
+  background-size:cover;
+  background-position:center;
+  border:1px solid rgba(201,179,126,.25);
+  box-shadow:0 0 45px rgba(0,0,0,.8);
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:25px;
+  margin-top:35px;
+}
+
+.card{
+  background:linear-gradient(145deg,#111,#070707);
+  border:1px solid rgba(201,179,126,.2);
+  padding:28px;
+  min-height:220px;
+  transition:.3s;
+}
+
+.card:hover{
+  transform:translateY(-10px);
+  border-color:#c9b37e;
+  box-shadow:0 0 30px rgba(201,179,126,.18);
+}
+
+.card h3{
+  color:#d9c48f;
+  font-family:Georgia, serif;
+  font-size:1.6rem;
+  margin-bottom:15px;
+}
+
+.card p{
+  color:#cfcfcf;
+  line-height:1.7;
+}
+
+.quote-section{
+  background:
+    linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.9)),
+    url("img/white-owl-4196287_1280.jpg");
+  background-size:cover;
+  background-position:center;
+  text-align:center;
+}
+
+.quote{
+  font-family:Georgia, serif;
+  font-size:clamp(1.8rem,4vw,3.5rem);
+  color:#eee;
+  max-width:900px;
+  margin:auto;
+  line-height:1.3;
+}
+
+footer{
+  padding:35px;
+  text-align:center;
+  background:#020202;
+  color:#777;
+  border-top:1px solid rgba(201,179,126,.15);
+}
+
+@media(max-width:800px){
+  nav{
+    gap:15px;
+    padding:14px;
+  }
+
+  nav a{
+    font-size:.7rem;
+  }
+
+  .two-columns{
+    grid-template-columns:1fr;
+  }
+
+  section{
+    padding:70px 7%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <a href="#historia">Historia</a>
+  <a href="#personajes">Personajes</a>
+  <a href="#elementos">Elementos</a>
+</nav>
+
+<header class="hero">
+  <div class="hero-content">
+    <div class="small-title">Harry Potter</div>
+    <h1>El Prisionero de Azkaban</h1>
+    <p>
+      Una historia envuelta en niebla, secretos familiares, dementores,
+      lunas llenas y un fugitivo que cambiará la vida de Harry para siempre.
+    </p>
+    <a class="btn" href="#historia">Descubrir</a>
+  </div>
+</header>
+
+<section id="historia">
+  <div class="two-columns">
+    <div>
+      <h2 class="section-title">Un año más oscuro</h2>
+      <div class="dark-box">
+        <p>
+          En su tercer año en Hogwarts, Harry descubre que Sirius Black ha
+          escapado de Azkaban. Todos creen que busca matarlo, pero la verdad
+          detrás de su fuga es mucho más profunda.
+        </p>
+        <br>
+        <p>
+          La película mezcla misterio, magia y un tono más maduro, con escenarios
+          fríos, cielos grises y una atmósfera de peligro constante.
+        </p>
+      </div>
+    </div>
+
+    <div class="image-card"></div>
+  </div>
+</section>
+
+<section id="personajes">
+  <h2 class="section-title">Personajes</h2>
+
+  <div class="cards">
+    <div class="card">
+      <h3>Harry Potter</h3>
+      <p>Enfrenta sus miedos y descubre partes ocultas del pasado de sus padres.</p>
+    </div>
+
+    <div class="card">
+      <h3>Sirius Black</h3>
+      <p>El fugitivo de Azkaban, rodeado de rumores, miedo y secretos.</p>
+    </div>
+
+    <div class="card">
+      <h3>Remus Lupin</h3>
+      <p>Profesor sabio y protector, con una conexión importante al pasado de Harry.</p>
+    </div>
+
+    <div class="card">
+      <h3>Dementores</h3>
+      <p>Criaturas sombrías que consumen la felicidad y vigilan los terrenos de Hogwarts.</p>
+    </div>
+  </div>
+</section>
+
+<section id="elementos">
+  <h2 class="section-title">Magia, tiempo y sombras</h2>
+
+  <div class="cards">
+    <div class="card">
+      <h3>Expecto Patronum</h3>
+      <p>Un hechizo de luz usado para enfrentar a los dementores.</p>
+    </div>
+
+    <div class="card">
+      <h3>Mapa del Merodeador</h3>
+      <p>Un mapa mágico que revela los movimientos dentro de Hogwarts.</p>
+    </div>
+
+    <div class="card">
+      <h3>Giratiempo</h3>
+      <p>Un objeto capaz de alterar el curso de los acontecimientos.</p>
+    </div>
+  </div>
+</section>
+
+<section class="quote-section">
+  <p class="quote">
+    “La luz más poderosa nace incluso en los momentos más oscuros.”
+  </p>
+</section>
+
+
+</body>
+</html>
