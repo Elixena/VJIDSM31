@@ -1,0 +1,607 @@
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            overflow: hidden;
+            font-family: Georgia, serif;
+            background: #06130b;
+            color: white;
+        }
+
+        .trailer {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 80% 15%, rgba(255,255,210,0.8) 0 5%, transparent 8%),
+                linear-gradient(to bottom, #07152c 0%, #132c38 42%, #243b22 70%, #0d1f0f 100%);
+            animation: camara 12s infinite alternate ease-in-out;
+        }
+
+        .trailer::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle, transparent 45%, rgba(0,0,0,0.65) 100%);
+            z-index: 30;
+            pointer-events: none;
+        }
+
+        /* Estrellas */
+        .estrellas {
+            position: absolute;
+            inset: 0;
+            background-image:
+                radial-gradient(white 1px, transparent 1px),
+                radial-gradient(#ffe 1px, transparent 1px);
+            background-size: 80px 80px, 140px 140px;
+            opacity: 0.55;
+            animation: brillar 2s infinite alternate;
+        }
+
+        @keyframes brillar {
+            from { opacity: 0.3; }
+            to { opacity: 0.75; }
+        }
+
+        /* Luna */
+        .luna {
+            position: absolute;
+            top: 55px;
+            right: 110px;
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            background: #fff7ba;
+            box-shadow: 0 0 45px #fff7ba;
+            z-index: 2;
+        }
+
+        /* Nubes */
+        .nube {
+            position: absolute;
+            top: 110px;
+            left: -280px;
+            width: 250px;
+            height: 70px;
+            background: rgba(255,255,255,0.14);
+            border-radius: 50px;
+            filter: blur(2px);
+            animation: moverNube 18s linear infinite;
+            z-index: 3;
+        }
+
+        .nube::before,
+        .nube::after {
+            content: "";
+            position: absolute;
+            background: rgba(255,255,255,0.14);
+            border-radius: 50%;
+        }
+
+        .nube::before {
+            width: 90px;
+            height: 90px;
+            top: -40px;
+            left: 40px;
+        }
+
+        .nube::after {
+            width: 120px;
+            height: 120px;
+            top: -60px;
+            right: 25px;
+        }
+
+        .nube2 {
+            top: 190px;
+            animation-duration: 26s;
+            animation-delay: 5s;
+            opacity: 0.5;
+        }
+
+        @keyframes moverNube {
+            from { left: -300px; }
+            to { left: 120%; }
+        }
+
+        /* Pantano */
+        .pantano {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 260px;
+            background:
+                radial-gradient(circle at 20% 40%, rgba(120,160,60,0.45), transparent 18%),
+                radial-gradient(circle at 65% 55%, rgba(100,130,40,0.45), transparent 20%),
+                linear-gradient(to top, #061006, #193715);
+            z-index: 5;
+        }
+
+        .agua {
+            position: absolute;
+            bottom: 75px;
+            width: 100%;
+            height: 105px;
+            background:
+                repeating-linear-gradient(
+                    0deg,
+                    rgba(255,255,255,0.08) 0px,
+                    rgba(255,255,255,0.08) 2px,
+                    transparent 2px,
+                    transparent 14px
+                ),
+                linear-gradient(to right, #1f4c25, #2e6b2e, #173c1c);
+            border-top: 4px solid rgba(255,255,255,0.1);
+            opacity: 0.85;
+            animation: agua 3s infinite linear;
+            z-index: 6;
+        }
+
+        @keyframes agua {
+            from { background-position: 0 0; }
+            to { background-position: 80px 0; }
+        }
+
+        .pasto {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 95px;
+            background: #071407;
+            z-index: 8;
+        }
+
+        .pasto::before {
+            content: "";
+            position: absolute;
+            top: -30px;
+            width: 100%;
+            height: 45px;
+            background:
+                repeating-linear-gradient(
+                    80deg,
+                    #0c2b0b 0px,
+                    #0c2b0b 8px,
+                    transparent 8px,
+                    transparent 18px
+                );
+        }
+
+        /* Casa del pantano */
+        .casa {
+            position: absolute;
+            bottom: 150px;
+            left: 90px;
+            width: 260px;
+            height: 170px;
+            background: #4b2e18;
+            border: 5px solid #1f1208;
+            border-radius: 18px;
+            transform: rotate(-2deg);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.6);
+            z-index: 9;
+        }
+
+        .techo {
+            position: absolute;
+            top: -75px;
+            left: -25px;
+            width: 310px;
+            height: 95px;
+            background: #2a1b0d;
+            border-radius: 80% 80% 10% 10%;
+            transform: rotate(2deg);
+            box-shadow: inset 0 -20px 0 rgba(0,0,0,0.25);
+        }
+
+        .puerta {
+            position: absolute;
+            bottom: 0;
+            left: 95px;
+            width: 70px;
+            height: 115px;
+            background: #2b1709;
+            border: 4px solid #150c05;
+            border-radius: 40px 40px 0 0;
+        }
+
+        .ventana {
+            position: absolute;
+            top: 45px;
+            left: 25px;
+            width: 55px;
+            height: 45px;
+            background: #ffd36a;
+            border: 4px solid #160d05;
+            box-shadow: 0 0 15px #ffd36a;
+            animation: luz 3s infinite alternate;
+        }
+
+        @keyframes luz {
+            from { opacity: 0.45; }
+            to { opacity: 1; }
+        }
+
+        /* Castillo */
+        .castillo {
+            position: absolute;
+            bottom: 210px;
+            right: 90px;
+            width: 220px;
+            height: 230px;
+            z-index: 4;
+            opacity: 0.8;
+            animation: castilloZoom 12s infinite alternate;
+        }
+
+        .torre {
+            position: absolute;
+            bottom: 0;
+            width: 55px;
+            height: 190px;
+            background: #35364a;
+            border: 3px solid #1c1d2b;
+        }
+
+        .torre::before {
+            content: "";
+            position: absolute;
+            top: -55px;
+            left: -11px;
+            width: 0;
+            height: 0;
+            border-left: 38px solid transparent;
+            border-right: 38px solid transparent;
+            border-bottom: 60px solid #612831;
+        }
+
+        .torre1 { left: 0; }
+        .torre2 { right: 0; }
+        .torre3 {
+            left: 82px;
+            height: 230px;
+        }
+
+        .base-castillo {
+            position: absolute;
+            bottom: 0;
+            left: 35px;
+            width: 150px;
+            height: 135px;
+            background: #2d2f42;
+            border: 3px solid #1c1d2b;
+        }
+
+        @keyframes castilloZoom {
+            from { transform: scale(0.95); }
+            to { transform: scale(1.08); }
+        }
+
+        /* Shrek estilo caricatura */
+        .shrek {
+            position: absolute;
+            bottom: 90px;
+            left: -180px;
+            width: 150px;
+            height: 260px;
+            z-index: 15;
+            animation: entraShrek 18s infinite;
+        }
+
+        .cabeza {
+            position: absolute;
+            top: 0;
+            left: 35px;
+            width: 85px;
+            height: 85px;
+            background: #76a83c;
+            border-radius: 45% 45% 50% 50%;
+            border: 3px solid #325719;
+        }
+
+        .oreja {
+            position: absolute;
+            top: 20px;
+            width: 48px;
+            height: 18px;
+            background: #76a83c;
+            border: 3px solid #325719;
+            border-radius: 20px;
+        }
+
+        .oreja.izq {
+            left: -35px;
+            transform: rotate(18deg);
+        }
+
+        .oreja.der {
+            right: -35px;
+            transform: rotate(-18deg);
+        }
+
+        .ojo {
+            position: absolute;
+            top: 35px;
+            width: 10px;
+            height: 10px;
+            background: #111;
+            border-radius: 50%;
+        }
+
+        .ojo.izq { left: 27px; }
+        .ojo.der { right: 27px; }
+
+        .sonrisa {
+            position: absolute;
+            top: 57px;
+            left: 31px;
+            width: 25px;
+            height: 10px;
+            border-bottom: 3px solid #222;
+            border-radius: 50%;
+        }
+
+        .cuerpo {
+            position: absolute;
+            top: 85px;
+            left: 28px;
+            width: 95px;
+            height: 125px;
+            background: #d7c097;
+            border: 4px solid #5e3d21;
+            border-radius: 30px 30px 15px 15px;
+        }
+
+        .chaleco {
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(90deg, #5b3a20 0 30%, transparent 30% 70%, #5b3a20 70%);
+            border-radius: 25px;
+        }
+
+        .pierna {
+            position: absolute;
+            top: 205px;
+            width: 35px;
+            height: 55px;
+            background: #4c3a25;
+            border-radius: 12px;
+        }
+
+        .pierna.izq { left: 40px; }
+        .pierna.der { right: 40px; }
+
+        @keyframes entraShrek {
+            0% {
+                left: -180px;
+                transform: scale(0.9);
+            }
+            25%, 60% {
+                left: 42%;
+                transform: scale(1);
+            }
+            100% {
+                left: 120%;
+                transform: scale(0.9);
+            }
+        }
+
+        /* Burro */
+        .burro {
+            position: absolute;
+            bottom: 80px;
+            left: -120px;
+            width: 120px;
+            height: 140px;
+            z-index: 14;
+            animation: entraBurro 18s infinite;
+        }
+
+        .burro-cuerpo {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            width: 85px;
+            height: 55px;
+            background: #777;
+            border-radius: 45%;
+            border: 3px solid #333;
+        }
+
+        .burro-cabeza {
+            position: absolute;
+            top: 20px;
+            left: 70px;
+            width: 55px;
+            height: 65px;
+            background: #777;
+            border-radius: 50%;
+            border: 3px solid #333;
+        }
+
+        .burro-oreja {
+            position: absolute;
+            top: -35px;
+            width: 18px;
+            height: 55px;
+            background: #777;
+            border: 3px solid #333;
+            border-radius: 50%;
+        }
+
+        .burro-oreja.izq {
+            left: 7px;
+            transform: rotate(-18deg);
+        }
+
+        .burro-oreja.der {
+            right: 7px;
+            transform: rotate(18deg);
+        }
+
+        .burro-ojo {
+            position: absolute;
+            top: 25px;
+            right: 15px;
+            width: 9px;
+            height: 9px;
+            background: black;
+            border-radius: 50%;
+        }
+
+        .burro-pata {
+            position: absolute;
+            bottom: 0;
+            width: 13px;
+            height: 35px;
+            background: #555;
+            border-radius: 8px;
+        }
+
+        .p1 { left: 30px; }
+        .p2 { left: 65px; }
+
+        @keyframes entraBurro {
+            0%, 10% {
+                left: -130px;
+            }
+            30%, 60% {
+                left: 54%;
+            }
+            100% {
+                left: 125%;
+            }
+        }
+
+        /* Logo */
+        .logo {
+            position: absolute;
+            top: 38px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: clamp(48px, 9vw, 110px);
+            color: #8bc34a;
+            text-shadow:
+                4px 4px 0 #28450d,
+                0 0 25px rgba(139,195,74,0.7);
+            letter-spacing: 4px;
+            z-index: 25;
+            opacity: 0;
+            animation: logoEntrada 18s infinite;
+        }
+
+        @keyframes logoEntrada {
+            0%, 5% {
+                opacity: 0;
+                transform: translateX(-50%) scale(0.5);
+            }
+            10%, 28% {
+                opacity: 1;
+                transform: translateX(-50%) scale(1);
+            }
+            35%, 100% {
+                opacity: 0;
+            }
+        }
+
+        /* Texto trailer */
+        .texto {
+            position: absolute;
+            bottom: 35px;
+            width: 100%;
+            text-align: center;
+            font-size: clamp(20px, 3vw, 40px);
+            color: #fff1b8;
+            text-shadow:
+                0 0 10px #000,
+                3px 3px 0 #1b2c0c;
+            letter-spacing: 2px;
+            z-index: 28;
+            animation: textoFade 18s infinite;
+        }
+
+        .texto::after {
+            content: "EN UN PANTANO MUY, MUY LEJANO...";
+            animation: frases 18s infinite;
+        }
+
+        @keyframes frases {
+            0%, 20% {
+                content: "EN UN PANTANO MUY, MUY LEJANO...";
+            }
+            21%, 40% {
+                content: "UN OGRO SOLO QUERÍA PAZ...";
+            }
+            41%, 60% {
+                content: "PERO UNA AVENTURA TOCÓ A SU PUERTA...";
+            }
+            61%, 80% {
+                content: "CON UN BURRO QUE NUNCA DEJA DE HABLAR...";
+            }
+            81%, 100% {
+                content: "PRÓXIMAMENTE: SHREK";
+            }
+        }
+
+        @keyframes textoFade {
+            0%, 100% { opacity: 0; }
+            8%, 90% { opacity: 1; }
+        }
+
+        /* Destellos mágicos */
+        .magia {
+            position: absolute;
+            inset: 0;
+            background-image:
+                radial-gradient(#fff7a8 2px, transparent 3px),
+                radial-gradient(#baff8a 2px, transparent 3px);
+            background-size: 120px 120px, 170px 170px;
+            opacity: 0;
+            animation: magia 18s infinite;
+            z-index: 11;
+        }
+
+        @keyframes magia {
+            0%, 55% { opacity: 0; }
+            65%, 85% { opacity: 0.5; }
+            100% { opacity: 0; }
+        }
+
+        @keyframes camara {
+            from { transform: scale(1); }
+            to { transform: scale(1.04); }
+        }
+
+        @media (max-width: 700px) {
+            .casa {
+                left: 25px;
+                transform: scale(0.75) rotate(-2deg);
+            }
+
+            .castillo {
+                right: -20px;
+                transform: scale(0.7);
+            }
+
+            .shrek {
+                transform: scale(0.75);
+            }
+
+            .burro {
+                transform: scale(0.75);
+            }
+
+            .luna {
+                right: 35px;
+                width: 80px;
+                height: 80px;
+            }
+        }
