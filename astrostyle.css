@@ -1,0 +1,498 @@
+/* =========================================
+   VARIABLES DE COLOR VIBRANTES (NEBULOSA)
+   ========================================= */
+:root {
+    /* Fondos espaciales ricos en morados y azules oscuros */
+    --bg-dark: #090416; 
+    --bg-light: #150935; 
+    
+    /* Textos */
+    --text-main: #f4f4f9;
+    --text-muted: #b8b8d1;
+    
+    /* Acentos Neón */
+    --accent-cyan: #00f0ff;
+    --accent-magenta: #ff007f;
+    --accent-gold: #ffcf00;
+    
+    /* Elementos de interfaz */
+    --card-bg: rgba(30, 15, 60, 0.4);
+    --border-color: rgba(255, 255, 255, 0.15);
+    
+    --font-heading: 'Space Grotesk', sans-serif;
+    --font-body: 'Montserrat', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    line-height: 1.8;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+/* =========================================
+   NAVEGACIÓN (Efecto Cristal)
+   ========================================= */
+header {
+    background: rgba(9, 4, 22, 0.7);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(0, 240, 255, 0.2);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.logo span {
+    /* Texto con degradado */
+    background: linear-gradient(to right, var(--accent-cyan), var(--accent-magenta));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.nav-links a:hover {
+    color: var(--accent-cyan);
+    background: rgba(0, 240, 255, 0.1);
+    text-shadow: 0 0 8px var(--accent-cyan);
+}
+
+/* =========================================
+   HERO SECTION (Explosión de Color)
+   ========================================= */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* Degradado radial que simula una galaxia colorida */
+    background: radial-gradient(circle at 50% 30%, #3a0ca3 0%, var(--bg-dark) 80%);
+    padding: 0 20px;
+    margin-top: 60px; 
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(135deg, rgba(255,0,127,0.1) 0%, rgba(0,240,255,0.05) 100%);
+    pointer-events: none;
+}
+
+.hero-content {
+    max-width: 900px;
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: 4.5rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    background: linear-gradient(45deg, #fff, var(--accent-cyan), var(--accent-magenta));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 10px 30px rgba(255, 0, 127, 0.3);
+}
+
+.hero p {
+    font-size: 1.3rem;
+    color: var(--text-main);
+    margin-bottom: 40px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 18px 45px;
+    background: linear-gradient(45deg, var(--accent-magenta), #7209b7);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 50px;
+    transition: all 0.4s ease;
+    box-shadow: 0 10px 25px rgba(255, 0, 127, 0.5);
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.btn-primary:hover {
+    transform: translateY(-5px) scale(1.05);
+    background: linear-gradient(45deg, var(--accent-cyan), #4361ee);
+    box-shadow: 0 15px 35px rgba(0, 240, 255, 0.6);
+}
+
+/* =========================================
+   UTILIDADES COMUNES
+   ========================================= */
+.section {
+    padding: 120px 5%;
+}
+
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-size: 3.2rem;
+    text-align: center;
+    margin-bottom: 25px;
+    background: linear-gradient(to right, var(--accent-cyan), #fff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.section-desc {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 70px auto;
+    color: var(--text-muted);
+    font-size: 1.15rem;
+}
+
+.dark-bg { background-color: var(--bg-dark); }
+.light-bg { background-color: var(--bg-light); }
+
+/* =========================================
+   SISTEMA SOLAR Y EXOPLANETAS (TARJETAS NEÓN)
+   ========================================= */
+.grid-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 35px;
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 40px 30px;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    backdrop-filter: blur(10px);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card:hover {
+    transform: translateY(-15px);
+    border-color: var(--accent-cyan);
+    box-shadow: 0 15px 40px rgba(0, 240, 255, 0.2), inset 0 0 20px rgba(0, 240, 255, 0.05);
+    background: rgba(30, 15, 60, 0.8);
+}
+
+.card-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+}
+
+.card h3 {
+    color: var(--accent-gold);
+    font-size: 1.7rem;
+    margin-bottom: 15px;
+}
+
+.card p {
+    color: var(--text-main);
+    font-size: 1.05rem;
+}
+
+.card strong {
+    color: var(--accent-cyan);
+}
+
+/* Variante para Exoplanetas */
+.border-accent {
+    border-left: 5px solid var(--accent-magenta);
+    border-bottom: 5px solid transparent; /* Preparación para el hover */
+}
+
+.border-accent:hover {
+    border-color: var(--accent-magenta);
+    box-shadow: 0 15px 40px rgba(255, 0, 127, 0.2), inset 0 0 20px rgba(255, 0, 127, 0.05);
+}
+
+.border-accent h3 {
+    color: var(--accent-magenta);
+}
+
+/* =========================================
+   ESTRELLAS (FLEXBOX CRISTALINO)
+   ========================================= */
+.content-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 35px;
+}
+
+.text-box {
+    flex: 1 1 calc(50% - 35px);
+    min-width: 300px;
+    background: linear-gradient(135deg, rgba(255, 0, 127, 0.1) 0%, rgba(0, 240, 255, 0.05) 100%);
+    padding: 40px;
+    border-radius: 15px;
+    border: 1px solid rgba(255,0,127,0.3);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+}
+
+.text-box:hover {
+    transform: scale(1.02);
+    border-color: var(--accent-cyan);
+}
+
+.text-box h3 {
+    color: #fff;
+    font-size: 1.6rem;
+    border-bottom: 2px solid var(--accent-cyan);
+    padding-bottom: 10px;
+    display: inline-block;
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+}
+
+/* =========================================
+   COSMOLOGÍA (FILAS DEGRADADAS)
+   ========================================= */
+.feature-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 60px;
+    padding: 50px;
+    background: linear-gradient(90deg, rgba(114, 9, 183, 0.2) 0%, transparent 100%);
+    border-radius: 20px;
+    border-left: 6px solid var(--accent-cyan);
+}
+
+.feature-row.reverse {
+    background: linear-gradient(-90deg, rgba(255, 0, 127, 0.2) 0%, transparent 100%);
+    border-left: none;
+    border-right: 6px solid var(--accent-magenta);
+}
+
+.feature-text h3 {
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 20px;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+/* =========================================
+   LÍNEA DE TIEMPO (EXPLORACIÓN LUMINOSA)
+   ========================================= */
+.timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* La línea central ahora es un láser */
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background: linear-gradient(to bottom, var(--accent-cyan), var(--accent-magenta), var(--accent-gold));
+    top: 0;
+    bottom: 0;
+    left: 20px;
+    margin-left: -2px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.5);
+}
+
+.timeline-item {
+    padding: 20px 0 40px 60px;
+    position: relative;
+    width: 100%;
+}
+
+/* Puntos de la línea de tiempo */
+.timeline-dot {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    right: -12px;
+    background-color: var(--bg-dark);
+    border: 5px solid var(--accent-gold);
+    border-radius: 50%;
+    top: 25px;
+    left: 10px;
+    z-index: 1;
+    box-shadow: 0 0 20px var(--accent-gold), inset 0 0 5px #fff;
+}
+
+.timeline-content {
+    padding: 35px;
+    background: rgba(20, 10, 40, 0.8);
+    border-radius: 15px;
+    border: 1px solid var(--accent-cyan);
+    box-shadow: 0 10px 30px rgba(0, 240, 255, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.timeline-content:hover {
+    transform: translateX(10px);
+    border-color: var(--accent-magenta);
+    box-shadow: 0 10px 30px rgba(255, 0, 127, 0.2);
+}
+
+.timeline-content h3 {
+    color: var(--accent-cyan);
+    font-size: 1.5rem;
+    text-shadow: 0 0 8px rgba(0, 240, 255, 0.4);
+}
+
+/* =========================================
+   FOOTER (Elegante y Profundo)
+   ========================================= */
+footer {
+    background-color: #05020a;
+    padding: 80px 5% 30px;
+    border-top: 2px solid rgba(255, 0, 127, 0.3);
+    position: relative;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto 50px;
+}
+
+.footer-about p {
+    color: var(--text-muted);
+    margin-top: 20px;
+    font-size: 1rem;
+}
+
+.footer-links h4 {
+    color: #fff;
+    margin-bottom: 25px;
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 15px;
+}
+
+.footer-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.footer-links a:hover {
+    color: var(--accent-cyan);
+    transform: translateX(5px);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.5);
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+}
+
+/* =========================================
+   RESPONSIVIDAD (MEDIA QUERIES)
+   ========================================= */
+@media (min-width: 768px) {
+    .timeline::after {
+        left: 50%;
+    }
+    .timeline-item {
+        width: 50%;
+        padding: 20px 50px;
+    }
+    .timeline-item:nth-child(odd) {
+        left: 0;
+        text-align: right;
+    }
+    .timeline-item:nth-child(even) {
+        left: 50%;
+    }
+    .timeline-item:nth-child(odd) .timeline-dot {
+        left: auto;
+        right: -12px;
+    }
+    .timeline-item:nth-child(even) .timeline-dot {
+        left: -12px;
+    }
+    .timeline-item:nth-child(odd) .timeline-content:hover {
+        transform: translateX(-10px);
+    }
+}
+
+@media (max-width: 900px) {
+    .nav-links { display: none; }
+    .hero h1 { font-size: 3rem; }
+    .section-title { font-size: 2.5rem; }
+    .text-box { flex: 1 1 100%; }
+}
