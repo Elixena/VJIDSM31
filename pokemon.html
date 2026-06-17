@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokédex Rápida - ¡Hazte con todos!</title>
+    <style>
+        :root {
+            --red-pokeball: #FF1C1C;
+            --dark-pokeball: #232323;
+            --white-pokeball: #F0F0F0;
+            --bg-color: #f7f9fa;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: #333;
+            padding-bottom: 50px;
+        }
+
+        header {
+            background-color: var(--red-pokeball);
+            background-image: linear-gradient(180deg, var(--red-pokeball) 45%, var(--dark-pokeball) 45%, var(--dark-pokeball) 55%, var(--white-pokeball) 55%);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            border-bottom: 5px solid var(--dark-pokeball);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: calc(50% - 20px);
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            border: 5px solid var(--dark-pokeball);
+            border-radius: 50%;
+            z-index: 10;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 0px var(--dark-pokeball), -2px -2px 0px var(--dark-pokeball), 2px -2px 0px var(--dark-pokeball), -2px 2px 0px var(--dark-pokeball);
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+            color: #FFCC00;
+        }
+
+        header p {
+            color: #fff;
+            font-size: 1.1rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            overflow: hidden;
+            border: 2px solid #eef2f5;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .card-id {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            font-weight: bold;
+            color: #ccc;
+            font-size: 1.1rem;
+        }
+
+        .img-container {
+            background-color: #f2f4f7;
+            border-radius: 50%;
+            width: 140px;
+            height: 140px;
+            margin: 10px auto 20px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .img-container img {
+            width: 110px;
+            height: 110px;
+            object-fit: contain;
+        }
+
+        .card h2 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            text-transform: capitalize;
+            color: #2c3e50;
+        }
+
+        .types {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .type {
+            padding: 5px 12px;
+            border-radius: 20px;
+            color: white;
+            font-size: 0.85rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        /* Colores de tipos Pokémon */
+        .planta { background-color: #7AC74C; }
+        .veneno { background-color: #A33EA1; }
+        .fuego { background-color: #EE8130; }
+        .agua { background-color: #6390F0; }
+        .volador { background-color: #A98FF3; }
+        .bicho { background-color: #A6B91A; }
+        .electrico { background-color: #F7D02C; color: #333; }
+
+        .stats {
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+            display: flex;
+            justify-content: space-around;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .stat-box span {
+            display: block;
+            font-weight: bold;
+            color: #333;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #888;
+            font-size: 0.9rem;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Pokémon Iniciales</h1>
+        <p>Una selección rápida de los clásicos más queridos</p>
+    </header>
+
+    <div class="container">
+        <div class="grid">
+            
+            <!-- Bulbasaur -->
+            <div class="card">
+                <div class="card-id">#001</div>
+                <div class="img-container">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png" alt="Bulbasaur">
+                </div>
+                <h2>Bulbasaur</h2>
+                <div class="types">
+                    <span class="type planta">Planta</span>
+                    <span class="type veneno">Veneno</span>
+                </div>
+                <div class="stats">
+                    <div class="stat-box"><span>45</span>HP</div>
+                    <div class="stat-box"><span>49</span>Ataque</div>
+                    <div class="stat-box"><span>49</span>Defensa</div>
+                </div>
+            </div>
+
+            <!-- Charmander -->
+            <div class="card">
+                <div class="card-id">#004</div>
+                <div class="img-container">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png" alt="Charmander">
+                </div>
+                <h2>Charmander</h2>
+                <div class="types">
+                    <span class="type fuego">Fuego</span>
+                </div>
+                <div class="stats">
+                    <div class="stat-box"><span>39</span>HP</div>
+                    <div class="stat-box"><span>52</span>Ataque</div>
+                    <div class="stat-box"><span>43</span>Defensa</div>
+                </div>
+            </div>
+
+            <!-- Squirtle -->
+            <div class="card">
+                <div class="card-id">#007</div>
+                <div class="img-container">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png" alt="Squirtle">
+                </div>
+                <h2>Squirtle</h2>
+                <div class="types">
+                    <span class="type agua">Agua</span>
+                </div>
+                <div class="stats">
+                    <div class="stats-box"><span>44</span>HP</div>
+                    <div class="stat-box"><span>48</span>Ataque</div>
+                    <div class="stat-box"><span>65</span>Defensa</div>
+                </div>
+            </div>
+
+            <!-- Pikachu -->
+            <div class="card">
+                <div class="card-id">#025</div>
+                <div class="img-container">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png" alt="Pikachu">
+                </div>
+                <h2>Pikachu</h2>
+                <div class="types">
+                    <span class="type electrico">Eléctrico</span>
+                </div>
+                <div class="stats">
+                    <div class="stat-box"><span>35</span>HP</div>
+                    <div class="stat-box"><span>55</span>Ataque</div>
+                    <div class="stat-box"><span>40</span>Defensa</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 - Generado en fa. Atributos e imágenes de PokéAPI.</p>
+    </footer>
+
+</body>
+</html>
